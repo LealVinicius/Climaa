@@ -27,8 +27,8 @@ public class LoginController {
 	public String fazerLogin(HttpServletRequest request, Usuario usuario) {
 		if (loginService.logar(usuario)) {
 			request.getSession().setAttribute("usuarioLogado", usuario);
-			return "redirect:previsoes";
+			return "redirect:/previsoes";
 		}
-		return "login";
+		return "/login";
 	}
 }

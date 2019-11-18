@@ -10,11 +10,16 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
 @Entity
-public class Previsao implements Serializable {
+//@JsonIgnoreProperties(ignoreUnknown = true)
+public class Clima implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,11 +28,20 @@ public class Previsao implements Serializable {
 	@OneToOne
 	private Semana semana;
 	private Date dataHora;
-	private Double tempMinima;
-	private Double tempMaxima;
+	@JsonAlias("temp_min")
+	private Double tempMin;
+	@JsonAlias("temp_max")
+	private Double tempMax;
+	@JsonAlias("humidity")
 	private Double umidade;
 	private String descricao;
+	private String iconName;
 	
+	public String icone() {
+		return "http://openweathermap.org/img/w/" + iconName + ".png";
+	}
+	
+	@JsonBackReference
 	@ManyToOne
 	Cidade cidade;
 	

@@ -10,9 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity @Data
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity @Getter @Setter @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cidade implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,5 +28,5 @@ public class Cidade implements Serializable {
 	private Double longitude;
 	
 	@OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL)
-	private List<Previsao> previsoes;
+	private List<Clima> climas;
 }

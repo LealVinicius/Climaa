@@ -15,40 +15,58 @@
 		<div class="panel-heading">
 			<h1 class="panel-title">Clima</h1>
 		</div>
-		
+
 		<!-- Executar de forma assíncrona:
 		1. Buscar cidade por latitude e longitude.
 		2. Buscar cidade pelo seu nome.
 		3. Buscar cidades pelo seu nome, ignorando letras maiúsculas. -->
-		
+
 		<!-- 
 		<form class="form-inline" method="post" th:object="${cidade}" th:action="@{/previsoes}" style="margin: 20px 0">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Cidade" th:field="*{nome}"/> --> 
-				<!--  <input type="text" class="form-control" placeholder="Nota 1" th:field="*{nota1}"/> 
+				<input type="text" class="form-control" placeholder="Cidade" th:field="*{nome}"/> -->
+		<!--  <input type="text" class="form-control" placeholder="Nota 1" th:field="*{nota1}"/> 
 				<input type="text" class="form-control" placeholder="Nota 2" th:field="*{nota2}" /> -->
-				<!--  <input type="text" class="form-control" placeholder="Média" th:field="*{mediaNotas}"/> -->
-				<!-- <button type="submit" class="btn btn-primary">Adicionar</button>
+		<!--  <input type="text" class="form-control" placeholder="Média" th:field="*{mediaNotas}"/> -->
+		<!-- <button type="submit" class="btn btn-primary">Adicionar</button>
 			</div>
 		</form> -->
 		<div class="panel-body">
 			<table class="table">
 				<thead>
 					<tr>
-						<th></th>
-						<th>Previsoes</th>
+						<th>Cidade</th>
+						<th>Latitude</th>
+						<th>Longitude</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="previsao : ${previsoes}">
-						<td th:text="${previsao.semana.dia}"></td>
-						<td th:text="${previsao.dataHora}"></td>
-						<td th:text="${previsao.tempMinima}"></td>
-						<td th:text="${previsao.tempMaxima}"></td>
-						<td th:text="${previsao.umidade}"></td>
-						<td th:text="${previsao.descricao}"></td>
-						<td th:text="${previsao.latitude}"></td>
-						<td th:text="${previsao.longitude}"></td>
+					<tr th:each="cidade : ${cidades}">
+						<td th:text="${cidade.nome}"></td>
+						<td th:text="${cidade.latitude}"></td>
+						<td th:text="${cidade.longitude}"></td>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Semana</th>
+									<th>Data</th>
+									<th>Mínima</th>
+									<th>Máxima</th>
+									<th>Umidade</th>
+									<th>Descrição</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="clima : ${cidade.climas}">
+									<td th:text="${clima.semana.dia}"></td>
+									<td th:text="${clima.dataHora}"></td>
+									<td th:text="${clima.tempMin}"></td>
+									<td th:text="${clima.tempMax}"></td>
+									<td th:text="${clima.umidade}"></td>
+									<td th:text="${clima.descricao}"></td>
+								</tr>
+							</tbody>
+						</table>
 					</tr>
 				</tbody>
 			</table>
