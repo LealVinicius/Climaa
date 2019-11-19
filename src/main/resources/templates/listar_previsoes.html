@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Hello Spring Boot</title>
+<title>Clima Spring Boot</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
@@ -14,6 +14,7 @@
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
 			<h1 class="panel-title">Clima</h1>
+			<a href="/buscarPrev/cidade/1">carregar online</a>
 		</div>
 
 		<!-- Executar de forma assíncrona:
@@ -64,6 +65,7 @@
 									<td th:text="${clima.tempMax}"></td>
 									<td th:text="${clima.umidade}"></td>
 									<td th:text="${clima.descricao}"></td>
+									<td><img src="" th:src="${clima.icone}" /></td>
 								</tr>
 							</tbody>
 						</table>

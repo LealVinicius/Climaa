@@ -13,12 +13,13 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 @Entity
-//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Clima implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -37,7 +38,7 @@ public class Clima implements Serializable {
 	private String descricao;
 	private String iconName;
 	
-	public String icone() {
+	public String getIcone() {
 		return "http://openweathermap.org/img/w/" + iconName + ".png";
 	}
 	

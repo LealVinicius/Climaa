@@ -1,19 +1,18 @@
-package br.usjt.clima.model;
+package br.usjt.clima.core;
 
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-import br.usjt.clima.controller.Previsao;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter @Setter
+@Getter @Setter @ToString
 public class Forecast {
 	 private String cod;
 	 private float message;
 	 private float cnt;
 	 @JsonAlias("list")
 	 List<Previsao> previsoes;
-	 Cidade cidade;
 }
