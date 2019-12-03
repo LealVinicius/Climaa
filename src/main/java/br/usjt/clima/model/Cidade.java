@@ -15,7 +15,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity @Getter @Setter @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity 
+@Getter 
+@Setter 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Cidade implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -26,6 +29,7 @@ public class Cidade implements Serializable {
 	private String nome;
 	private Double latitude;
 	private Double longitude;
+	
 	
 	@OneToMany(mappedBy = "cidade", cascade = CascadeType.ALL)
 	private List<Clima> climas;

@@ -2,7 +2,6 @@ package br.usjt.clima.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import br.usjt.clima.model.Usuario;
 import br.usjt.clima.repository.UsuarioRepository;
 

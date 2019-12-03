@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-
 import br.usjt.clima.core.Forecast;
 import br.usjt.clima.core.Previsao;
 import br.usjt.clima.model.Cidade;
@@ -28,7 +26,7 @@ public class PrevisaoService {
 	PrevisaoRepository previsaoRepo;
 	
 	private final String URL_PREV = "https://samples.openweathermap.org/data/2.5/forecast?q=";
-	private final String APP_ID = "be8b5a409db5a652138d22f3a50368f9";
+	private final String APP_ID = "46efc02fe68cdb7cea54639b90b48adb";
 	private final double TO_CELSIUS = 273.15;
 	
 	@Bean
