@@ -29,7 +29,7 @@ public class CidadeResource {
 	public List<Cidade> todas() {
 		return cidadeRepo.findAll();
 	}
-
+/*
 	@GetMapping("/latlong")
 	public Cidade buscaCidade(@PathVariable double latitude, double longitude) {
 		return cidadeRepo.findOneByLatitudeAndLongitude(56.0, 25.0);
@@ -39,14 +39,9 @@ public class CidadeResource {
 	public Cidade buscarPeloId(@PathVariable Long id) {
 		return cidadeRepo.getOne(id);
 	}
-
-	@GetMapping("S")
-	public Future<List<Cidade>> buscarPelaLetra(@PathVariable String nome) {
-		return cidadeRepo.findByNome("S");
-	}
-
-	// TODO: Listar todas as cidades cujo nome começa com uma letra específica
-	// TODO: Obter uma cidade por sua latitude e longitude
+*/
+	//-- TODO: Listar todas as cidades cujo nome começa com uma letra específica
+	//-- TODO: Obter uma cidade por sua latitude e longitude
 
 	@PostMapping("/salvar")
 	public ResponseEntity<Cidade> salvar(@RequestBody Cidade cidade, HttpServletResponse response) {

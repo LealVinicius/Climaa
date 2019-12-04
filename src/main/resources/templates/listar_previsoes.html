@@ -2,9 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Clima Spring Boot</title>
+<title>Página inicial | Previsão do tempo</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
@@ -13,25 +17,26 @@
 <body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
-			<h1 class="panel-title">Clima</h1>
+
+			<div class="p-3 mb-2 bg-primary text-white">
+				<h4>Página inicial | Previsão do tempo</h4>
+			</div>
 			<a href="/buscarPrev/cidade/1">carregar online</a>
 		</div>
 
-		<!-- Executar de forma assíncrona:
-		1. Buscar cidade por latitude e longitude.
-		2. Buscar cidade pelo seu nome.
-		3. Buscar cidades pelo seu nome, ignorando letras maiúsculas. -->
-
-		<!-- 
-		<form class="form-inline" method="post" th:object="${cidade}" th:action="@{/previsoes}" style="margin: 20px 0">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Cidade" th:field="*{nome}"/> -->
-		<!--  <input type="text" class="form-control" placeholder="Nota 1" th:field="*{nota1}"/> 
-				<input type="text" class="form-control" placeholder="Nota 2" th:field="*{nota2}" /> -->
-		<!--  <input type="text" class="form-control" placeholder="Média" th:field="*{mediaNotas}"/> -->
-		<!-- <button type="submit" class="btn btn-primary">Adicionar</button>
-			</div>
-		</form> -->
+		<div class="form-group">
+			<form action="/buscarCidade" method="post">
+				<h6>Buscar por Cidade:</h6>
+				<input type="text" name="nome" placeholder="Insira cidade">
+				<input type="submit" class="btn btn-primary">
+			</form>
+			<form action="/buscarPorLatELong" method="post">
+				<h6>Buscar por latitude e longitude</h6>
+				<input type="text" name="lat" placeholder="Latitude"> <input
+					type="text" name="long" placeholder="Longitude"> <input
+					type="submit" class="btn btn-primary">
+			</form>
+		</div>
 		<div class="panel-body">
 			<table class="table">
 				<thead>
@@ -47,6 +52,7 @@
 						<td th:text="${cidade.latitude}"></td>
 						<td th:text="${cidade.longitude}"></td>
 						<table class="table">
+					
 							<thead>
 								<tr>
 									<th>Semana</th>
@@ -74,5 +80,16 @@
 			</table>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
 </body>
 </html>

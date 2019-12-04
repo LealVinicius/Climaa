@@ -2,9 +2,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Hello Spring Boot</title>
+
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Tahoma;
+	font-size: 9pt;
+}
+
+#form-center {
+	text-align: center;
+	width: 400px;
+	height: 150px;
+	left: 60%;
+	margin: -130px 0 0 -410px;
+	padding: 100px;
+	position: absolute;
+	top: 380px;
+}
+
+h3 {
+	top: 50%;
+	text-align: center;
+	
+	
+}
+</style>
+
+
+<title>Login | Previsão do Tempo</title>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
@@ -13,21 +47,37 @@
 <body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
-			<h1 class="panel-title">Login</h1>
+			<div class="p-3 mb-2 bg-primary text-white"><h3>Previsão do tempo</h3></div>
+			<div class="shadow p-3 mb-5 bg-blue rounded"></div>
+
 		</div>
-		<div class="panel-body">
-			<form class="form-inline" method="post" th:object="${usuario}"
-				th:action="@{/fazerLogin}" style="margin: 20px 0">
-				<div class="form-group">
-					<input required type="text" class="form-control"
-						placeholder="Usuário" th:field="*{login}" />
-					<input required
-						type="password" class="form-control" placeholder="Senha"
-						th:field="*{senha}" />
-					<button type="submit" class="btn btn-primary">Login</button>
-				</div>
-			</form>
+		<div id="form-center">
+			<div class="panel-body">
+				<form class="form-inline" method="post" th:object="${usuario}"
+					th:action="@{/fazerLogin}" style="margin: 20px 0">
+					<div class="form-group">
+						<input required type="text" class="form-control"
+							placeholder="Usuário" th:field="*{login}" /> <input required
+							type="password" class="form-control" placeholder="Senha"
+							th:field="*{senha}" />
+						<button type="submit" class="btn btn-primary">Login</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+		
 </body>
 </html>
